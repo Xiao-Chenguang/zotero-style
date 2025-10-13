@@ -292,7 +292,7 @@ export default class GraphView {
   
   private getGraphByAuthorLink(items: Zotero.Item[]) {
     let getAuthors = (item: Zotero.Item) => {
-      return item.getCreators().map(a => {
+      return item.getCreators().filter(a => a.creatorTypeID == 8).map(a => {
         return `${a.firstName} ${a.lastName}`
       })
     }
